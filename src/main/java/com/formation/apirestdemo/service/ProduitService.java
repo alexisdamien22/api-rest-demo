@@ -1,6 +1,7 @@
 package com.formation.apirestdemo.service;
 import com.formation.apirestdemo.model.Produit;
 import com.formation.apirestdemo.repository.ProduitRepository;
+import com.formation.apirestdemo.service.ConsoleNotificationService;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -12,14 +13,14 @@ import java.util.Optional;
 @Service
 public class ProduitService {
 private final ProduitRepository produitRepository;
-private final ConsoleNotification consoleNotification;
+private final ConsoleNotificationService consoleNotificationService;
 /**
 * Injection de dépendance par constructeur.
 * Spring injecte automatiquement le ProduitRepository.
 */
-public ProduitService(ProduitRepository produitRepository, ConsoleNotification consoleNotification) {
+public ProduitService(ProduitRepository produitRepository, ConsoleNotificationService consoleNotificationService) {
 this.produitRepository = produitRepository;
-this.ConsoleNotification = consoleNotification;
+this.consoleNotificationService = consoleNotificationService;
 }
 /**
 * Retourne tous les produits.
@@ -42,7 +43,7 @@ return produitRepository.findById(id);
 public Produit creer(Produit produit) {
 // On s'assure que l'ID est null pour forcer une création (pas une mise à jour)
 produit.setId(null);
-this.consoleNotification.notifier("stock", "Nouveau produit : " + nom);
+this.consoleNotificationService.notifier("stock", "Nouveau produit : " + produit.getNom());
 return produitRepository.save(produit);
 }
 /**

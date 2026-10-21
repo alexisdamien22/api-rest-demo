@@ -1,5 +1,8 @@
 package com.formation.apirestdemo.service;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
+
 @Service("emailNotification")
 public class EmailNotificationService implements NotificationService {
     @Override
