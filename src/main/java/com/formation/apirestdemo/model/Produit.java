@@ -90,6 +90,6 @@ public class Produit {
 
     @Override
     public String toString() {
-        return "Produit{id=" + id + ", nom='" + nom + "', prix=" + prix + "}";
+        return "Produit{id=" + id + ", nom='" + nom + "', prix=" + prix + "}\n";
     }
 }
