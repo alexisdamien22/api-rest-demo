@@ -1,4 +1,4 @@
-package main.java.com.formation.apirestdemo.repository;
+package com.formation.apirestdemo.repository;
 import com.formation.apirestdemo.model.Produit;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

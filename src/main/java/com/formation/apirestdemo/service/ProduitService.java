@@ -1,4 +1,4 @@
-package main.java.com.formation.apirestdemo.service;
+package com.formation.apirestdemo.service;
 import com.formation.apirestdemo.model.Produit;
 import com.formation.apirestdemo.repository.ProduitRepository;
 import org.springframework.stereotype.Service;

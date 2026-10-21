@@ -1,4 +1,4 @@
-package main.java.com.formation.apirestdemo.controller;
+package com.formation.apirestdemo.controller;
 import com.formation.apirestdemo.model.Produit;
 import com.formation.apirestdemo.service.ProduitService;
 import jakarta.validation.Valid;
