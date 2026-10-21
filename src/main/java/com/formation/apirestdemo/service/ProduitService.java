@@ -12,12 +12,14 @@ import java.util.Optional;
 @Service
 public class ProduitService {
 private final ProduitRepository produitRepository;
+private final ConsoleNotification consoleNotification;
 /**
 * Injection de dépendance par constructeur.
 * Spring injecte automatiquement le ProduitRepository.
 */
-public ProduitService(ProduitRepository produitRepository) {
+public ProduitService(ProduitRepository produitRepository, ConsoleNotification consoleNotification) {
 this.produitRepository = produitRepository;
+this.ConsoleNotification = consoleNotification;
 }
 /**
 * Retourne tous les produits.
@@ -40,6 +42,7 @@ return produitRepository.findById(id);
 public Produit creer(Produit produit) {
 // On s'assure que l'ID est null pour forcer une création (pas une mise à jour)
 produit.setId(null);
+this.consoleNotification.notifier("stock", "Nouveau produit : " + nom);
 return produitRepository.save(produit);
 }
 /**
